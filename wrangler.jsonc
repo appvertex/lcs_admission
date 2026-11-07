@@ -3,9 +3,13 @@
   "name": "loretto-admissions",
   "main": "worker/index.js",
   "compatibility_date": "2026-11-07",
+  "workers_dev": false,
+  "routes": [
+    { "pattern": "admission.lorettocentralschool.edu.in", "custom_domain": true }
+  ],
   "assets": { "directory": "./dist", "binding": "ASSETS", "not_found_handling": "single-page-application" },
   "d1_databases": [
-    { "binding": "DB", "database_name": "loretto-admissions", "database_id": "REPLACE_WITH_D1_DATABASE_ID", "migrations_dir": "migrations" }
+    { "binding": "DB", "database_name": "loretto-admissions", "database_id": "0d42c466-3fab-4b19-a0f3-cbcd519bd32f", "migrations_dir": "migrations" }
   ],
   "vars": { "CLERK_ISSUER": "https://replace-with-your-clerk-domain", "ADMIN_EMAILS": "admissions@lorettocentralschool.edu.in" }
 }
