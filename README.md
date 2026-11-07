@@ -5,11 +5,11 @@ A school admissions website and enquiry dashboard designed for Cloudflare Worker
 ## What is included
 
 - Home page with an admission poster modal, school overview, facilities, and activities.
-- Admission overview page with an editable-in-code process and policy copy.
+- Admission overview page with process and policy copy managed through the admin content editor.
 - Google sign-in gate for parents and staff, through Clerk.
 - Enquiry form for student, parent, class, new/transfer admission, previous school, address, religion, and an optional Aadhaar number.
-- Staff dashboard at `/admin` with enquiry list, contact details, status updates, and website content editing for the promotion text, facilities, activities, syllabus note, admission steps, and overview notes.
-- Worker API and D1 migration. Aadhaar is validated in transit but only its final four digits are saved.
+- Staff dashboard at `/admin` with enquiry list, contact details, status updates, and a content manager for school identity, page copy, images, facilities, activities, gallery, admission rules, form labels and options, poster, footer, and dashboard labels.
+- Worker API and D1 migrations. Website content loads from the `site_content` table in D1; migration `0002_seed_settings.sql` seeds the starter content document. Staff edits replace that document through the admin API. Aadhaar is validated in transit but only its final four digits are saved.
 
 ## Local setup
 
@@ -28,7 +28,7 @@ A school admissions website and enquiry dashboard designed for Cloudflare Worker
 
 ## Cloudflare deployment
 
-1. Create the D1 database: `npx wrangler d1 create loretto-admissions`, then put its returned ID into `wrangler.jsonc`.
+1. The production D1 database ID and custom domain are configured in `wrangler.jsonc`. For a new account, create a database with `npx wrangler d1 create loretto-admissions` and replace the ID there.
 2. Set production values with `npx wrangler secret put CLERK_SECRET_KEY`; set `CLERK_ISSUER` and `ADMIN_EMAILS` as Worker variables.
 3. Apply the production migration: `npx wrangler d1 migrations apply loretto-admissions --remote`.
 4. Build and deploy with the production publishable key available at build time (for example, `VITE_CLERK_PUBLISHABLE_KEY=pk_live_... npm run deploy`), then add `admission.lorettocentralschool.edu.in` as the Worker custom domain in Cloudflare. The school's DNS zone must be active on Cloudflare.

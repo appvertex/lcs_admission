@@ -71,7 +71,7 @@ async function handleApi(request, env) {
     try { user = await verifyToken(request, env); } catch (error) { return json({ error: error.message }, 401); }
     if (!isAdmin(user, env)) return json({ error: 'This account does not have admissions staff access.' }, 403);
     const data = await request.json().catch(() => null);
-    if (!data || typeof data !== 'object' || Array.isArray(data) || data.schemaVersion !== 2) return json({ error: 'Website content was not valid.' }, 400);
+    if (!data || typeof data !== 'object' || Array.isArray(data) || data.schemaVersion !== 3) return json({ error: 'Website content was not valid.' }, 400);
     const sanitize = (value, depth = 0) => {
       if (depth > 10) return null;
       if (typeof value === 'string') return value.slice(0, 5000);

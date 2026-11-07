@@ -1,0 +1,309 @@
+{
+  "schemaVersion": 3,
+  "schoolName": "Loretto Central School",
+  "tagline": "Love through service",
+  "topbarText": "CBSE affiliated school",
+  "logoUrl": "/loretto-logo.png",
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "facilities": "Facilities",
+    "activities": "Activities",
+    "gallery": "Gallery",
+    "admissions": "Admission overview",
+    "apply": "Enquire for admission"
+  },
+  "sections": {
+    "hero": true,
+    "facts": true,
+    "about": true,
+    "facilities": true,
+    "life": true,
+    "gallery": true,
+    "admissionsCta": true
+  },
+  "hero": {
+    "badge": "CBSE affiliated school",
+    "title": "Learning rooted",
+    "highlight": "in values.",
+    "body": "Loretto Central School nurtures young minds through education rooted in values, discipline and innovation.",
+    "motto": "Love through service",
+    "imageUrl": "https://lorettocentralschool.edu.in/assets/school%20img-D_uBgOKP.webp",
+    "imageAlt": "Loretto Central School campus",
+    "imageCaption": "A place to learn and grow"
+  },
+  "facts": [
+    {
+      "title": "2010",
+      "label": "Established"
+    },
+    {
+      "title": "CBSE",
+      "label": "Affiliated school"
+    },
+    {
+      "title": "Every child",
+      "label": "Known and encouraged"
+    }
+  ],
+  "about": {
+    "badge": "About our school",
+    "title": "A legacy of excellence",
+    "highlight": "& values.",
+    "body": "We believe education is about more than what happens in a classroom. It is the confidence to explore, the discipline to keep learning and the kindness to grow together."
+  },
+  "facilities": [
+    {
+      "title": "A place to belong",
+      "body": "A welcoming campus where every child is known, supported and encouraged to grow."
+    },
+    {
+      "title": "Learning for life",
+      "body": "A thoughtful curriculum that builds strong foundations, curiosity and confidence."
+    },
+    {
+      "title": "Beyond the classroom",
+      "body": "Space for sport, creative expression, clubs and the everyday joy of learning together."
+    },
+    {
+      "title": "Care at every step",
+      "body": "A caring school community that values character, kindness and each learner’s potential."
+    }
+  ],
+  "facilitiesSection": {
+    "badge": "THE LORETTO EXPERIENCE",
+    "title": "Room to learn.",
+    "highlight": "Space to flourish.",
+    "description": "Strong foundations, caring relationships and experiences that help every child find their potential.",
+    "curriculumTitle": "Curriculum & syllabus"
+  },
+  "curriculumNote": "Our curriculum supports strong foundations, curiosity and confidence. Ask the admissions team for the current class-wise syllabus.",
+  "life": {
+    "badge": "Life at Loretto",
+    "title": "Learning happens",
+    "highlight": "in many ways.",
+    "body": "From classroom discovery to shared activities, school life gives children more ways to explore their interests and grow with confidence.",
+    "imageUrl": "https://res.cloudinary.com/dtlgn2pdf/image/upload/f_auto,q_auto,w_1000/v1774673958/loretto/images/6628beb4-30b4-4b7a-96ca-975018c17ca0.jpg",
+    "imageAlt": "School life at Loretto Central School",
+    "imageCaption": "Learn · Grow · Belong",
+    "activities": [
+      "Sports & movement",
+      "Music & performance",
+      "Creative arts",
+      "Clubs & community"
+    ]
+  },
+  "gallery": {
+    "badge": "School gallery",
+    "title": "Life at Loretto Central School",
+    "description": "A glimpse of our campus and school community",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dtlgn2pdf/image/upload/f_auto,q_auto,w_1000/v1774673969/loretto/images/7e0162ed-f777-4840-a85d-b611c025be15.jpg",
+        "alt": "Loretto Central School gallery photo 1"
+      },
+      {
+        "url": "https://res.cloudinary.com/dtlgn2pdf/image/upload/f_auto,q_auto,w_1000/v1774673981/loretto/images/d3cdb79c-e8ea-4439-8b91-062cb3a1f37e.jpg",
+        "alt": "Loretto Central School gallery photo 2"
+      },
+      {
+        "url": "https://res.cloudinary.com/dtlgn2pdf/image/upload/f_auto,q_auto,w_1000/v1774674002/loretto/images/a6cb0480-2acf-4f43-a977-a11e6e90990f.jpg",
+        "alt": "Loretto Central School gallery photo 3"
+      },
+      {
+        "url": "https://res.cloudinary.com/dtlgn2pdf/image/upload/f_auto,q_auto,w_1000/v1774674021/loretto/images/17827bf2-7167-4c69-965b-333d7c5fab2d.jpg",
+        "alt": "Loretto Central School gallery photo 4"
+      }
+    ]
+  },
+  "admissionsCta": {
+    "badge": "Admissions",
+    "title": "Every great journey",
+    "highlight": "starts with a hello.",
+    "body": "Tell us about your child. Our admissions team will help you with the next steps."
+  },
+  "promo": {
+    "enabled": true,
+    "headline": "Give them room to become.",
+    "body": "Admissions are open. Discover a school community where learning goes further and every child can find their way.",
+    "imageUrl": "",
+    "imageCaption": "A bright beginning starts here.",
+    "note": "A few details are all it takes to get started."
+  },
+  "overview": {
+    "badge": "Join our community",
+    "title": "Admission",
+    "highlight": "overview.",
+    "intro": "Everything you need to know to take the first step towards Loretto Central School.",
+    "sectionBadge": "Admissions / how it works",
+    "sectionTitle": "A clear path,",
+    "sectionHighlight": "from the start.",
+    "steps": [
+      {
+        "title": "Send an enquiry",
+        "body": "Tell us a little about your child and the class you are interested in. Our admissions team will get in touch."
+      },
+      {
+        "title": "Talk with our team",
+        "body": "We will help you understand availability, the school day and the documents needed for your application."
+      },
+      {
+        "title": "Meet the school",
+        "body": "Arrange a visit and learn more about the campus, our approach and the Loretto community."
+      },
+      {
+        "title": "Complete your application",
+        "body": "If a place is available, our team will guide you through the formal application and next steps."
+      }
+    ],
+    "policyBadge": "A note for families",
+    "policyTitle": "Here to help you",
+    "policyHighlight": "find your way.",
+    "policyText": "Admission is subject to class availability and the school’s age and eligibility criteria. Please contact the admissions office for the current prospectus, fee schedule, required documents and dates.\n\nSubmitting an enquiry is not an admission application or confirmation of a place. Our team will contact you to explain the process for your child’s class."
+  },
+  "footer": {
+    "admissionsText": "Admissions enquiries",
+    "copyright": "© Loretto Central School"
+  },
+  "ui": {
+    "welcomePrefix": "Welcome to",
+    "myEnquiry": "My enquiry",
+    "exploreAdmissions": "Explore admissions",
+    "discoverPrefix": "Discover",
+    "askQuestion": "Ask us a question",
+    "homeSectionNumber": "01 / 04",
+    "promoDialogLabel": "Admissions are open",
+    "promoAlt": "Admission promotion",
+    "promoArtwork": [
+      "A SCHOOL",
+      "FOR EVERY",
+      "POSSIBILITY"
+    ],
+    "admin": {
+      "eyebrow": "LORETTO / ADMISSIONS OFFICE",
+      "heading": "Admin dashboard.",
+      "refresh": "↻ Refresh",
+      "enquiries": "Enquiries",
+      "websiteContent": "Website content",
+      "viewWebsite": "View website ↗",
+      "total": "TOTAL ENQUIRIES",
+      "allTime": "All time",
+      "needsResponse": "NEEDS A RESPONSE",
+      "newEnquiries": "New enquiries",
+      "inProgress": "IN PROGRESS",
+      "progressDetail": "Contacted or visit scheduled",
+      "recent": "Recent enquiries",
+      "followup": "Follow up with families and update their status.",
+      "records": "RECORDS",
+      "loading": "Loading enquiries…",
+      "emptyTitle": "Your enquiries will appear here.",
+      "emptyBody": "When a parent submits an enquiry, it will show up in this dashboard.",
+      "classColumn": "CLASS",
+      "contactColumn": "CONTACT",
+      "receivedColumn": "RECEIVED",
+      "statusColumn": "STATUS",
+      "studentParent": "STUDENT / PARENT",
+      "statuses": {
+        "New": "New",
+        "Contacted": "Contacted",
+        "Visit scheduled": "Visit scheduled",
+        "Admitted": "Admitted",
+        "Closed": "Closed"
+      },
+      "navigation": "Admin navigation"
+    },
+    "closePoster": "Close admission poster",
+    "signedInAs": "Signed in as",
+    "googleAccount": "your Google account",
+    "mainNavigation": "Main navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "signOut": "Sign out",
+    "staffSignIn": "Staff sign in ↗",
+    "genericError": "Something went wrong. Please try again.",
+    "demoBanner": "LOCAL DEMO · Sign-in is bypassed. Enquiries and content stay in this browser only."
+  },
+  "auth": {
+    "schoolEyebrow": "LORETTO CENTRAL SCHOOL",
+    "heroTitle": "One small step",
+    "heroHighlight": "towards a big future.",
+    "heroBody": "Sign in securely to start an admission enquiry. It only takes a moment.",
+    "backHome": "← Back to home",
+    "formEyebrow": "ADMISSIONS / SECURE SIGN IN",
+    "title": "Welcome.",
+    "body": "Continue with Google to tell us about your child.",
+    "setupTitle": "Sign-in setup needed",
+    "setupBody": "Google sign-in is not configured yet. Please contact the school admissions office.",
+    "privacy": "Your sign-in helps us keep your enquiry connected to you."
+  },
+  "application": {
+    "eyebrow": "ADMISSIONS / YOUR ENQUIRY",
+    "title": "Tell us about",
+    "highlight": "your child.",
+    "intro": "Share a few details and our admissions team will help you with the next steps.",
+    "childSection": "About your child",
+    "childHint": "Who are we welcoming?",
+    "studentLabel": "Student’s full name *",
+    "studentPlaceholder": "As on school records",
+    "classLabel": "Class applying for *",
+    "classPlaceholder": "Select a class",
+    "entryLabel": "Admission type *",
+    "newLabel": "New admission",
+    "newHint": "Joining school for the first time",
+    "transferLabel": "Transfer admission",
+    "transferHint": "Moving from another school",
+    "previousLabel": "Previous school name *",
+    "previousPlaceholder": "Name of the school",
+    "parentSection": "Parent or guardian",
+    "parentHint": "How can we reach your family?",
+    "parentLabel": "Parent / guardian name *",
+    "parentPlaceholder": "Full name",
+    "phoneLabel": "Mobile number *",
+    "phonePlaceholder": "+91 00000 00000",
+    "addressLabel": "Residential address *",
+    "addressPlaceholder": "House / street, locality, town, PIN code",
+    "religionLabel": "Religion *",
+    "religionPlaceholder": "Select an option",
+    "religions": [
+      "Hinduism",
+      "Christianity",
+      "Islam",
+      "Sikhism",
+      "Buddhism",
+      "Jainism",
+      "Other",
+      "Prefer not to say"
+    ],
+    "aadhaarLabel": "Aadhaar number",
+    "optional": "Optional",
+    "aadhaarPlaceholder": "12-digit number, if needed",
+    "aadhaarHint": "Optional. For privacy, only the last four digits are retained.",
+    "messageLabel": "Anything you would like us to know?",
+    "messagePlaceholder": "Optional",
+    "consent": "I agree that Loretto Central School may contact me about this admission enquiry. *",
+    "submit": "Submit enquiry",
+    "submitting": "Sending enquiry…",
+    "privacy": "Your details will only be used by the school admissions team to respond to this enquiry.",
+    "successEyebrow": "ENQUIRY RECEIVED",
+    "successTitle": "Thank you,",
+    "successBody": "Our admissions team will be in touch with {parent} soon.",
+    "applicationClass": "APPLICATION CLASS",
+    "enquiryLinked": "Enquiry linked to",
+    "backButton": "Back to home",
+    "classes": [
+      "Nursery",
+      "LKG",
+      "UKG",
+      "Class 1",
+      "Class 2",
+      "Class 3",
+      "Class 4",
+      "Class 5",
+      "Class 6",
+      "Class 7",
+      "Class 8",
+      "Class 9",
+      "Class 10"
+    ]
+  }
+}
