@@ -1,32 +1,58 @@
 const json = (data, status = 200) => Response.json(data, { status, headers: { 'Cache-Control': 'no-store' } });
 
+let clerkJwksCache = { issuer: '', expiresAt: 0, keys: [] };
+
+function decodeBase64Url(value) {
+  const base64 = value.replace(/-/g, '+').replace(/_/g, '/');
+  return atob(base64.padEnd(Math.ceil(base64.length / 4) * 4, '='));
+}
+
+async function getClerkJwks(issuer, force = false) {
+  if (!force && clerkJwksCache.issuer === issuer && clerkJwksCache.expiresAt > Date.now()) return clerkJwksCache.keys;
+  const response = await fetch(`${issuer}/.well-known/jwks.json`, { cf: { cacheTtl: 3600, cacheEverything: true } });
+  if (!response.ok) throw new Error('Unable to verify your sign-in.');
+  const data = await response.json();
+  if (!Array.isArray(data.keys)) throw new Error('Unable to verify your sign-in.');
+  clerkJwksCache = { issuer, expiresAt: Date.now() + 3600_000, keys: data.keys };
+  return data.keys;
+}
+
 async function verifyToken(request, env) {
   const token = request.headers.get('Authorization')?.replace(/^Bearer\s+/i, '');
-  if (!token || !env.CLERK_ISSUER || env.CLERK_ISSUER.includes('replace-with')) throw new Error('Sign in is not configured.');
+  if (!token || !env.CLERK_ISSUER || env.CLERK_ISSUER.includes('replace-with') || !env.CLERK_SECRET_KEY) {
+    throw new Error('Sign-in has not been configured for this site yet.');
+  }
   const [headerPart, payloadPart, signaturePart] = token.split('.');
   if (!headerPart || !payloadPart || !signaturePart) throw new Error('Please sign in again.');
-  const decode = (part) => JSON.parse(atob(part.replace(/-/g, '+').replace(/_/g, '/')));
-  const header = decode(headerPart), claims = decode(payloadPart);
+  let header, claims;
+  try {
+    header = JSON.parse(decodeBase64Url(headerPart));
+    claims = JSON.parse(decodeBase64Url(payloadPart));
+  } catch { throw new Error('Please sign in again.'); }
   if (header.alg !== 'RS256' || !header.kid) throw new Error('Invalid sign-in token.');
   const issuer = env.CLERK_ISSUER.replace(/\/$/, '');
-  if (claims.iss !== issuer || claims.exp < Date.now() / 1000 || !claims.sub) throw new Error('Please sign in again.');
-  const jwksResponse = await fetch(`${issuer}/.well-known/jwks.json`);
-  if (!jwksResponse.ok) throw new Error('Unable to verify your sign-in.');
-  const jwks = await jwksResponse.json();
-  const jwk = jwks.keys.find((key) => key.kid === header.kid);
+  const now = Date.now() / 1000;
+  if (claims.iss !== issuer || claims.exp <= now || claims.nbf > now || !claims.sub) throw new Error('Please sign in again.');
+  const authorizedParties = (env.CLERK_AUTHORIZED_PARTIES || '').split(',').map(value => value.trim()).filter(Boolean);
+  if (!claims.azp || !authorizedParties.includes(claims.azp)) throw new Error('This sign-in did not come from an approved school website.');
+  let keys = await getClerkJwks(issuer);
+  let jwk = keys.find(key => key.kid === header.kid);
+  if (!jwk) {
+    keys = await getClerkJwks(issuer, true);
+    jwk = keys.find(key => key.kid === header.kid);
+  }
   if (!jwk) throw new Error('Unable to verify your sign-in.');
   const publicKey = await crypto.subtle.importKey('jwk', jwk, { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' }, false, ['verify']);
-  const signature = Uint8Array.from(atob(signaturePart.replace(/-/g, '+').replace(/_/g, '/')), (char) => char.charCodeAt(0));
+  let signature;
+  try { signature = Uint8Array.from(decodeBase64Url(signaturePart), char => char.charCodeAt(0)); }
+  catch { throw new Error('Invalid sign-in token.'); }
   const signedData = new TextEncoder().encode(`${headerPart}.${payloadPart}`);
   if (!await crypto.subtle.verify('RSASSA-PKCS1-v1_5', publicKey, signature, signedData)) throw new Error('Invalid sign-in token.');
-  let email = '';
-  if (env.CLERK_SECRET_KEY) {
-    const userResponse = await fetch(`https://api.clerk.com/v1/users/${encodeURIComponent(claims.sub)}`, { headers: { Authorization: `Bearer ${env.CLERK_SECRET_KEY}` } });
-    if (userResponse.ok) {
-      const clerkUser = await userResponse.json();
-      email = clerkUser.email_addresses?.find((item) => item.id === clerkUser.primary_email_address_id)?.email_address || '';
-    }
-  }
+  const userResponse = await fetch(`https://api.clerk.com/v1/users/${encodeURIComponent(claims.sub)}`, { headers: { Authorization: `Bearer ${env.CLERK_SECRET_KEY}` } });
+  if (!userResponse.ok) throw new Error('Unable to verify your account email.');
+  const clerkUser = await userResponse.json();
+  const primary = clerkUser.email_addresses?.find(item => item.id === clerkUser.primary_email_address_id);
+  const email = primary?.verification?.status === 'verified' ? primary.email_address : '';
   return { id: claims.sub, email };
 }
 
